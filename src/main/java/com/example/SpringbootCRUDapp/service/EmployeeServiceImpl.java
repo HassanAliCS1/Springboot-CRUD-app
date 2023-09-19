@@ -1,6 +1,7 @@
 package com.example.SpringbootCRUDapp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.SpringbootCRUDapp.service.EmployeeService;
 import com.example.SpringbootCRUDapp.model.Employee;
@@ -22,6 +23,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void saveEmployee(Employee employee){
         this.employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee getEmployeeByID(long id){
+        Optional<Employee> optional = employeeRepository.findById(id);
+        Employee employee = null;
+        if(optional.isPresent()){
+            employee = optional.get();
+        }else{
+            throw new RuntimeException("Employee not found for id :: " + id );
+        }
+        return employee;
     }
 
 
