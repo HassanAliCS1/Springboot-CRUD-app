@@ -12,11 +12,11 @@
     <div class="container">
         <hr>
         <h2>Save Employee</h2>
-        <form action="#" th:action="@{saveEmployee}" th:object="empoyee" method="POST">
+        <form action="#" th:action="@{saveEmployee}" th:object="@{employee}" method="POST">
 
             <input type="text" th:feild = "*{firstName]" placeholder="Employee First Name" class="form-control mb-4 col-4">
 
-            <input type="text" th:feild = "*{LasttName]" placeholder="Employee Last Name" class="form-control mb-4 col-4">
+            <input type="text" th:feild = "*{lastName]" placeholder="Employee Last Name" class="form-control mb-4 col-4">
 
             <input type="text" th:feild = "*{email]" placeholder="Employee Email" class="form-control mb-4 col-4">
 
