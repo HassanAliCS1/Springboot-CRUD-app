@@ -26,7 +26,7 @@ public class EmployeeController {
 
     @GetMapping("/showNewEmployeeForm")
     public String showNewEmployeeForm(Model model){
-        Employee employee = new Employee();
+        Employee employee = new Employee( );
         model.addAttribute("employee",employee);
         return "new_employee";
     }

@@ -3,11 +3,14 @@ package com.example.SpringbootCRUDapp;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @SpringBootTest
-class SpringbootCrudAppApplicationTests {
+public class SpringbootCrudAppApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
+		assertTrue(true);
 	}
 
 }

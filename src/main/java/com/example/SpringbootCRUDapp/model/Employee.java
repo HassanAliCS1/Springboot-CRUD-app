@@ -1,9 +1,13 @@
 package com.example.SpringbootCRUDapp.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "employees")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +18,8 @@ public class Employee {
     private String lastName;
     @Column(name = "email")
     private String email;
+
+
 
     public long getId() {
         return id;
