@@ -29,10 +29,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class EmployeeControllerTest {
 
     private MockMvc mockMvc;
-
     @Mock
     private EmployeeService employeeService;
-
     @InjectMocks
     private EmployeeController employeeController;
 
@@ -67,7 +65,17 @@ public class EmployeeControllerTest {
     }
 
 
+    @Test
+    public void getEmployeeByIdTest () throws Exception {
 
+        Mockito.when(employeeService.getEmployeeByID(employeeA.getId())).thenReturn(employeeA);
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/showFormForUpdate/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                        .andExpect(status().isOk());
+
+    }
 
 
 }
