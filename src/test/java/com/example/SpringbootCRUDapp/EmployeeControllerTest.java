@@ -20,9 +20,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -37,9 +39,9 @@ public class EmployeeControllerTest {
     ObjectMapper objectMapper = new ObjectMapper();
     ObjectWriter objectWriter = objectMapper.writer();
 
-    Employee employeeA = new Employee(1,"Kevin", "G", "kg@gmail.com");
-    Employee employeeB = new Employee(2,"Kevin2", "G2", "kg@gmail.com2");
-    Employee employeeC = new Employee(3,"Kevin3", "G3", "kg@gmail.com3");
+    Employee employeeA = new Employee(1, "Kevin", "G", "kg@gmail.com");
+    Employee employeeB = new Employee(2, "Kevin2", "G2", "kg@gmail.com2");
+    Employee employeeC = new Employee(3, "Kevin3", "G3", "kg@gmail.com3");
 
 
     @BeforeEach
@@ -50,23 +52,22 @@ public class EmployeeControllerTest {
     }
 
 
-
     @Test
-    public void getAllRecordsTest () throws Exception {
-        List<Employee> employees = new ArrayList<>(Arrays.asList(employeeA,employeeB,employeeC));
+    public void getAllRecordsTest() throws Exception {
+        List<Employee> employees = new ArrayList<>(Arrays.asList(employeeA, employeeB, employeeC));
 
         Mockito.when(employeeService.getAllEmployees()).thenReturn(employees);
 
         mockMvc.perform(MockMvcRequestBuilders
-                .get("/")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .get("/")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
     }
 
 
     @Test
-    public void getEmployeeByIdTest () throws Exception {
+    public void getEmployeeByIdTest() throws Exception {
 
         Mockito.when(employeeService.getEmployeeByID(employeeA.getId())).thenReturn(employeeA);
 
