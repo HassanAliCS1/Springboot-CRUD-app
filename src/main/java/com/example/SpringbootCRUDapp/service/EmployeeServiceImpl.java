@@ -33,6 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             employee = optional.get();
         }else{
             throw new RuntimeException("Employee not found for id :: " + id );
+
         }
         return employee;
     }
@@ -42,3 +43,4 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository.deleteById(id);
     }
 }
+
