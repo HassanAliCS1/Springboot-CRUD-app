@@ -24,3 +24,10 @@ extends JpaRepository<Employee,Long>
 
 Objects in model:
 Employee. Id,Name, Email
+
+What i learnt:
+- objects and passing information.
+- Design patterns.
+- Database and CRUD
+- HTTP request and response 
+- spring boot MVC
